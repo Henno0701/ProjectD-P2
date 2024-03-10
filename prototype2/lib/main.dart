@@ -1,4 +1,11 @@
+import 'dart:html';
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,25 +20,96 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+        backgroundColor: const Color(0xFF121212),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 50.0, left: 20.0), // Adjust left padding as needed
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start, // Align children to the start (left) of the row
+            children: [
+              const Text(
+                'Welcome',
+                style: TextStyle(
+                  color: Color(0xFF1E80ED),
+                  fontSize: 25,
+                ),
+              ),
+              const Text(
+                'John',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 20,
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 15.0,),
+                child: Text(
+                  'Quick Access',
+                  style: TextStyle(
+                    color: Color(0xFFB0B0B0),
+                    fontSize: 10,
+                  ),
+                ),
+              ),
+              Padding(
+              padding: const EdgeInsets.only(top: 5.0,),
+              child: SizedBox(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all<Size>(const Size(double.infinity, 55)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      const Color(0xFF2E2E2E),
+                    ),
+                  ),
+                  child: const Text(
+                    "Make reservation",
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Color(0xFFB0B0B0),
+                    ),
+                  ),
+                  ),
+                ),
+              ),
+              Padding(
+              padding: const EdgeInsets.only(top: 5.0,),
+              child: SizedBox(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all<Size>(const Size(double.infinity, 55)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      const Color(0xFF2E2E2E),
+                    ),
+                  ),
+                  child: const Text(
+                    "Example",
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Color(0xFFB0B0B0),
+                    ),
+                  ),
+                  ),
+                ),
+              ),
+              ],
+            ),
+          )
+        ),
     );
   }
 }
