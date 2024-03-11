@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
@@ -47,6 +48,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (_selectedIndex == 2) {
+        // Check if "View Reservations" is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ViewReservations()),
+        );
+      }
     });
   }
 
@@ -170,5 +178,59 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: _onItemTapped,
       ),
     );
+  }
+}
+
+class ViewReservations extends StatelessWidget {
+  ViewReservations({super.key});
+  final int _currentIndex = 0;
+
+  static const List<Widget> _tabs = [
+    UpcomingReservations(),
+    ExpiredReservations(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: _tabs.length,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Reservations'),
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                  icon: Icon(Icons.calendar_month),
+                  text: 'Upcoming Reservations'),
+              Tab(
+                  icon: Icon(Icons.calendar_month),
+                  text: 'Expired Reservations'),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          children: _tabs,
+        ),
+      ),
+    );
+  }
+}
+
+class ExpiredReservations extends StatelessWidget {
+  const ExpiredReservations({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+}
+
+class UpcomingReservations extends StatelessWidget {
+  const UpcomingReservations({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    throw UnimplementedError();
   }
 }
