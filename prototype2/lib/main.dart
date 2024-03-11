@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -182,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class ViewReservations extends StatelessWidget {
-  ViewReservations({super.key});
+  const ViewReservations({Key? key});
   final int _currentIndex = 0;
 
   static const List<Widget> _tabs = [
@@ -195,20 +196,37 @@ class ViewReservations extends StatelessWidget {
     return DefaultTabController(
       length: _tabs.length,
       child: Scaffold(
+        backgroundColor: Colors.black, // Set background color to black
         appBar: AppBar(
-          title: const Text('Reservations'),
-          bottom: const TabBar(
+          backgroundColor: Colors.blue, // Set app bar background color to blue
+          title: const Text(
+            'Reservations',
+            style: TextStyle(color: Colors.white), // Set text color to white
+          ),
+          bottom: TabBar(
             tabs: [
               Tab(
-                  icon: Icon(Icons.calendar_month),
-                  text: 'Upcoming Reservations'),
+                icon: Icon(Icons.calendar_month),
+                child: Text(
+                  'Upcoming Reservations',
+                  style: TextStyle(
+                    color: Colors.white, // Set tab text color to white
+                  ),
+                ),
+              ),
               Tab(
-                  icon: Icon(Icons.calendar_month),
-                  text: 'Expired Reservations'),
+                icon: Icon(Icons.calendar_month),
+                child: Text(
+                  'Expired Reservations',
+                  style: TextStyle(
+                    color: Colors.white, // Set tab text color to white
+                  ),
+                ),
+              ),
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: _tabs,
         ),
       ),
@@ -217,20 +235,81 @@ class ViewReservations extends StatelessWidget {
 }
 
 class ExpiredReservations extends StatelessWidget {
-  const ExpiredReservations({super.key});
+  const ExpiredReservations({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return ListView(
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
 
 class UpcomingReservations extends StatelessWidget {
-  const UpcomingReservations({super.key});
+  const UpcomingReservations({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    throw UnimplementedError();
+    return ListView(
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
