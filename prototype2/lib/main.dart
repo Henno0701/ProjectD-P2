@@ -49,7 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      if (_selectedIndex == 2) {
+      if (_selectedIndex == 1) {
+        // Check if "Make Reservation" is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MakeReservations()),
+        );
+      } else if (_selectedIndex == 2) {
         // Check if "View Reservations" is tapped
         Navigator.push(
           context,
@@ -333,6 +339,244 @@ class ExpiredReservations extends StatelessWidget {
 
 class UpcomingReservations extends StatelessWidget {
   const UpcomingReservations({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class MakeReservations extends StatefulWidget {
+  MakeReservations({Key? key});
+
+  @override
+  _MakeReservationsState createState() => _MakeReservationsState();
+}
+
+class _MakeReservationsState extends State<MakeReservations> {
+  int _selectedIndex = 0;
+  // ignore: unused_field
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text('Home Page'),
+    Text('Make Reservation Page'),
+    Text('View Reservations Page'),
+    Text('Profile Page'),
+  ];
+  static const List<Widget> _tabs = [
+    OverviewReservations(),
+    ReserveReservations(),
+    QuickReserveReservations(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if (_selectedIndex == 1) {
+        // Check if "Make Reservation" is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MakeReservations()),
+        );
+      } else if (_selectedIndex == 2) {
+        // Check if "View Reservations" is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ViewReservations()),
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: _tabs.length,
+      child: Scaffold(
+        backgroundColor: Colors.black, // Set background color to black
+        appBar: AppBar(
+          backgroundColor: Colors.blue, // Set app bar background color to blue
+          title: const Text(
+            'Make Reservations',
+            style: TextStyle(color: Colors.white), // Set text color to white
+          ),
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                icon: Icon(Icons.calendar_month),
+                child: Text(
+                  'Overview',
+                  style: TextStyle(
+                    color: Colors.white, // Set tab text color to white
+                  ),
+                ),
+              ),
+              Tab(
+                icon: Icon(Icons.calendar_month),
+                child: Text(
+                  'Reserve',
+                  style: TextStyle(
+                    color: Colors.white, // Set tab text color to white
+                  ),
+                ),
+              ),
+              Tab(
+                icon: Icon(Icons.calendar_month),
+                child: Text(
+                  'Quick Reserve',
+                  style: TextStyle(
+                    color: Colors.white, // Set tab text color to white
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          children: _tabs,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              label: 'Make Reservation',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              label: 'View Reservations',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: const Color(0xFF1E80ED),
+          unselectedItemColor: const Color(0xFFB0B0B0),
+          backgroundColor: Colors.black, // Set the background color to black
+          onTap: _onItemTapped,
+        ),
+      ),
+    );
+  }
+}
+
+class OverviewReservations extends StatelessWidget {
+  const OverviewReservations({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ReserveReservations extends StatelessWidget {
+  const ReserveReservations({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            tileColor: const Color.fromARGB(255, 7, 7, 7),
+            textColor: const Color.fromARGB(255, 9, 157, 226),
+            iconColor: const Color.fromARGB(255, 9, 157, 226),
+            leading: const Icon(Icons.date_range),
+            title: const Text('Date: 12/12/2022'),
+            subtitle: const Text('Location: 1234 Example St'),
+            trailing: const Text('Time: 12:00 PM'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class QuickReserveReservations extends StatelessWidget {
+  const QuickReserveReservations({Key? key});
 
   @override
   Widget build(BuildContext context) {
