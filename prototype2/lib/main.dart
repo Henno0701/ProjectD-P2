@@ -13,7 +13,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   // This widget is the root of your application.
   @override
@@ -24,13 +24,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -182,9 +182,39 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+// ignore: must_be_immutable
 class ViewReservations extends StatelessWidget {
-  const ViewReservations({Key? key});
-  final int _currentIndex = 0;
+  ViewReservations({Key? key});
+  int _currentIndex = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text('Home Page'),
+    Text('Make Reservation Page'),
+    Text('View Reservations Page'),
+    Text('Profile Page'),
+  ];
+
+  MaterialApp get context => MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const MyHomePage(),
+      );
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+      if (_currentIndex == 2) {
+        // Check if "View Reservations" is tapped
+        Navigator.push(
+          context as BuildContext,
+          MaterialPageRoute(builder: (context) => ViewReservations()),
+        );
+      }
+    });
+  }
 
   static const List<Widget> _tabs = [
     UpcomingReservations(),
@@ -203,7 +233,7 @@ class ViewReservations extends StatelessWidget {
             'Reservations',
             style: TextStyle(color: Colors.white), // Set text color to white
           ),
-          bottom: TabBar(
+          bottom: const TabBar(
             tabs: [
               Tab(
                 icon: Icon(Icons.calendar_month),
@@ -226,12 +256,39 @@ class ViewReservations extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: _tabs,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              label: 'Make Reservation',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              label: 'View Reservations',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: _currentIndex,
+          selectedItemColor: const Color(0xFF1E80ED),
+          unselectedItemColor: const Color(0xFFB0B0B0),
+          backgroundColor: Colors.black, // Set the background color to black
+          onTap: _onItemTapped,
         ),
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
 
 class ExpiredReservations extends StatelessWidget {
