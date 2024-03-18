@@ -425,7 +425,7 @@ class _MakeReservationsState extends State<MakeReservations> {
       child: Scaffold(
         backgroundColor: Colors.black, // Set background color to black
         appBar: AppBar(
-          backgroundColor: Colors.blue, // Set app bar background color to blue
+          backgroundColor: Colors.black, // Set app bar background color to blue
           title: const Text(
             'Make Reservations',
             style: TextStyle(color: Colors.white), // Set text color to white
@@ -500,33 +500,86 @@ class OverviewReservations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Card(
-          child: ListTile(
-            tileColor: const Color.fromARGB(255, 7, 7, 7),
-            textColor: const Color.fromARGB(255, 9, 157, 226),
-            iconColor: const Color.fromARGB(255, 9, 157, 226),
-            leading: const Icon(Icons.date_range),
-            title: const Text('Date: 12/12/2022'),
-            subtitle: const Text('Location: 1234 Example St'),
-            trailing: const Text('Time: 12:00 PM'),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+        const SizedBox(height: 20.0), // Add spacing from the top
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(1000), // Rounded edges
+                ),
+                child: Container(
+                  height: 150.0,
+                  color: const Color.fromARGB(255, 34, 33, 33),
+                  child: const Center(
+                    child: Text(
+                      'Available Stations: 5',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: Color.fromARGB(255, 248, 248, 248),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
-          ),
+            const SizedBox(width: 20.0), // Add spacing between cards
+            Expanded(
+              child: Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(1000), // Rounded edges
+                ),
+                child: Container(
+                  height: 150.0,
+                  color: const Color.fromARGB(255, 34, 33, 33),
+                  child: const Center(
+                    child: Text(
+                      'Defect Stations: 5',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: Color.fromARGB(255, 248, 248, 248),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
+        const SizedBox(
+            height: 20.0), // Add spacing between the two rows of cards
         Card(
-          child: ListTile(
-            tileColor: const Color.fromARGB(255, 7, 7, 7),
-            textColor: const Color.fromARGB(255, 9, 157, 226),
-            iconColor: const Color.fromARGB(255, 9, 157, 226),
-            leading: const Icon(Icons.date_range),
-            title: const Text('Date: 12/12/2022'),
-            subtitle: const Text('Location: 1234 Example St'),
-            trailing: const Text('Time: 12:00 PM'),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(1000), // Rounded edges
+          ),
+          child: Container(
+            height: 150.0,
+            color: const Color.fromARGB(255, 34, 33, 33),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Defect Charging Stations',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Color.fromARGB(255, 248, 248, 248),
+                  ),
+                ),
+                SizedBox(height: 10.0), // Add spacing between title and text
+                Text(
+                  "I've got a defect station.",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Color.fromARGB(255, 248, 248, 248),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
