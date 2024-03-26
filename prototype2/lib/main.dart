@@ -7,6 +7,10 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -49,20 +53,30 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      if (_selectedIndex == 1) {
-        // Check if "Make Reservation" is tapped
+    });
+
+    switch (index) {
+      case 0:
+        // Navigate to Home Page
+        break;
+      case 1:
+        // Navigate to Make Reservation Page
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => MakeReservations()),
         );
-      } else if (_selectedIndex == 2) {
-        // Check if "View Reservations" is tapped
+        break;
+      case 2:
+        // Navigate to View Reservations Page
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => ViewReservations()),
         );
-      }
-    });
+        break;
+      case 3:
+        // Navigate to Profile Page
+        break;
+    }
   }
 
   @override
@@ -189,42 +203,55 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 // ignore: must_be_immutable
-class ViewReservations extends StatelessWidget {
-  ViewReservations({Key? key});
+class ViewReservations extends StatefulWidget {
+  const ViewReservations({Key? key});
+
+  @override
+  _ViewReservationsState createState() => _ViewReservationsState();
+}
+
+class _ViewReservationsState extends State<ViewReservations> {
   int _currentIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Home Page'),
-    Text('Make Reservation Page'),
-    Text('View Reservations Page'),
-    Text('Profile Page'),
-  ];
-
-  MaterialApp get context => MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+  static final List<Widget> _tabs = [
+    UpcomingReservations(
+      upcomingReservations: [
+        Reservation(
+          date: '2024-12-12',
+          location: '1234 Example St',
+          time: '12:00',
         ),
-        home: const MyHomePage(),
-      );
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-      if (_currentIndex == 2) {
-        // Check if "View Reservations" is tapped
-        Navigator.push(
-          context as BuildContext,
-          MaterialPageRoute(builder: (context) => ViewReservations()),
-        );
-      }
-    });
-  }
-
-  static const List<Widget> _tabs = [
-    UpcomingReservations(),
-    ExpiredReservations(),
+        Reservation(
+          date: '2022-12-13',
+          location: '1234 Example St',
+          time: '12:00',
+        ),
+        Reservation(
+          date: '2022-12-14',
+          location: '1234 Example St',
+          time: '12:00',
+        ),
+      ],
+    ),
+    ExpiredReservations(
+      expiredReservations: [
+        Reservation(
+          date: '12/12/2022',
+          location: '1234 Example St',
+          time: '12:00',
+        ),
+        Reservation(
+          date: '12/13/2022',
+          location: '1234 Example St',
+          time: '12:00',
+        ),
+        Reservation(
+          date: '12/14/2022',
+          location: '1234 Example St',
+          time: '12:00',
+        ),
+      ],
+    ),
   ];
 
   @override
@@ -232,9 +259,9 @@ class ViewReservations extends StatelessWidget {
     return DefaultTabController(
       length: _tabs.length,
       child: Scaffold(
-        backgroundColor: Colors.black, // Set background color to black
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.blue, // Set app bar background color to blue
+          backgroundColor: Colors.black,
           title: const Text(
             'Reservations',
             style: TextStyle(color: Colors.white), // Set text color to white
@@ -242,27 +269,17 @@ class ViewReservations extends StatelessWidget {
           bottom: const TabBar(
             tabs: [
               Tab(
-                icon: Icon(Icons.calendar_month),
-                child: Text(
-                  'Upcoming Reservations',
-                  style: TextStyle(
-                    color: Colors.white, // Set tab text color to white
-                  ),
-                ),
+                icon: Icon(Icons.calendar_today),
+                text: 'Upcoming Reservations',
               ),
               Tab(
-                icon: Icon(Icons.calendar_month),
-                child: Text(
-                  'Expired Reservations',
-                  style: TextStyle(
-                    color: Colors.white, // Set tab text color to white
-                  ),
-                ),
+                icon: Icon(Icons.history),
+                text: 'Expired Reservations',
               ),
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: _tabs,
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -288,91 +305,119 @@ class ViewReservations extends StatelessWidget {
           selectedItemColor: const Color(0xFF1E80ED),
           unselectedItemColor: const Color(0xFFB0B0B0),
           backgroundColor: Colors.black, // Set the background color to black
-          onTap: _onItemTapped,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+              // Handle navigation to other pages if needed
+              // This is just to maintain the selected index
+            });
+          },
         ),
       ),
     );
   }
+}
 
-  void setState(Null Function() param0) {}
+void setState(Null Function() param0) {}
+
+class Reservation {
+  final String date;
+  final String location;
+  final String time;
+
+  Reservation({
+    required this.date,
+    required this.location,
+    required this.time,
+  });
 }
 
 class ExpiredReservations extends StatelessWidget {
-  const ExpiredReservations({Key? key});
+  final List<Reservation> expiredReservations;
+
+  const ExpiredReservations({Key? key, required this.expiredReservations})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Card(
+    return ListView.builder(
+      itemCount: expiredReservations.length,
+      itemBuilder: (context, index) {
+        final reservation = expiredReservations[index];
+        return Card(
           child: ListTile(
             tileColor: const Color.fromARGB(255, 7, 7, 7),
             textColor: const Color.fromARGB(255, 9, 157, 226),
             iconColor: const Color.fromARGB(255, 9, 157, 226),
             leading: const Icon(Icons.date_range),
-            title: const Text('Date: 12/12/2022'),
-            subtitle: const Text('Location: 1234 Example St'),
-            trailing: const Text('Time: 12:00 PM'),
+            title: Text('Date: ${reservation.date}'),
+            subtitle: Text('Location: ${reservation.location}'),
+            trailing: Text('Time: ${reservation.time}'),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-        ),
-        Card(
-          child: ListTile(
-            tileColor: const Color.fromARGB(255, 7, 7, 7),
-            textColor: const Color.fromARGB(255, 9, 157, 226),
-            iconColor: const Color.fromARGB(255, 9, 157, 226),
-            leading: const Icon(Icons.date_range),
-            title: const Text('Date: 12/12/2022'),
-            subtitle: const Text('Location: 1234 Example St'),
-            trailing: const Text('Time: 12:00 PM'),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
 
-class UpcomingReservations extends StatelessWidget {
-  const UpcomingReservations({Key? key});
+class UpcomingReservations extends StatefulWidget {
+  final List<Reservation> upcomingReservations;
+
+  const UpcomingReservations({
+    Key? key,
+    required this.upcomingReservations,
+  }) : super(key: key);
+
+  @override
+  _UpcomingReservationsState createState() => _UpcomingReservationsState();
+}
+
+class _UpcomingReservationsState extends State<UpcomingReservations> {
+  late List<Reservation> _filteredReservations;
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredReservations = List.from(widget.upcomingReservations);
+    removeExpiredReservations();
+  }
+
+  void removeExpiredReservations() {
+    final currentTime = DateTime.now();
+
+    _filteredReservations.removeWhere((reservation) {
+      final reservationDateTime = DateTime.parse(
+          '${reservation.date} ${reservation.time}'); // Convert date and time strings to DateTime object
+      return reservationDateTime.isBefore(currentTime);
+    });
+
+    setState(() {}); // Update the UI after removing expired reservations
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Card(
+    return ListView.builder(
+      itemCount: _filteredReservations.length,
+      itemBuilder: (context, index) {
+        final reservation = _filteredReservations[index];
+        return Card(
           child: ListTile(
             tileColor: const Color.fromARGB(255, 7, 7, 7),
             textColor: const Color.fromARGB(255, 9, 157, 226),
             iconColor: const Color.fromARGB(255, 9, 157, 226),
             leading: const Icon(Icons.date_range),
-            title: const Text('Date: 12/12/2022'),
-            subtitle: const Text('Location: 1234 Example St'),
-            trailing: const Text('Time: 12:00 PM'),
+            title: Text('Date: ${reservation.date}'),
+            subtitle: Text('Location: ${reservation.location}'),
+            trailing: Text('Time: ${reservation.time}'),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-        ),
-        Card(
-          child: ListTile(
-            tileColor: const Color.fromARGB(255, 7, 7, 7),
-            textColor: const Color.fromARGB(255, 9, 157, 226),
-            iconColor: const Color.fromARGB(255, 9, 157, 226),
-            leading: const Icon(Icons.date_range),
-            title: const Text('Date: 12/12/2022'),
-            subtitle: const Text('Location: 1234 Example St'),
-            trailing: const Text('Time: 12:00 PM'),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
@@ -561,24 +606,17 @@ class OverviewReservations extends StatelessWidget {
           child: Container(
             height: 150.0,
             color: const Color.fromARGB(255, 34, 33, 33),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  'Defect Charging Stations',
+                  'Defect Charging Stations\n\n\nIve got a defect station.',
                   style: TextStyle(
                     fontSize: 18.0,
                     color: Color.fromARGB(255, 248, 248, 248),
                   ),
                 ),
                 SizedBox(height: 10.0), // Add spacing between title and text
-                Text(
-                  "I've got a defect station.",
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    color: Color.fromARGB(255, 248, 248, 248),
-                  ),
-                ),
               ],
             ),
           ),
@@ -601,9 +639,23 @@ class ReserveReservations extends StatelessWidget {
             textColor: const Color.fromARGB(255, 9, 157, 226),
             iconColor: const Color.fromARGB(255, 9, 157, 226),
             leading: const Icon(Icons.date_range),
-            title: const Text('Date: 12/12/2022'),
-            subtitle: const Text('Location: 1234 Example St'),
-            trailing: const Text('Time: 12:00 PM'),
+            title: const Text('Feb 1-7'),
+            //create 7 buttons for each day of the week
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                for (var i = 0; i < 7; i++)
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF2E2E2E),
+                      ),
+                    ),
+                    child: Text((i + 1).toString()),
+                  ),
+              ],
+            ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -628,8 +680,31 @@ class ReserveReservations extends StatelessWidget {
   }
 }
 
-class QuickReserveReservations extends StatelessWidget {
+class QuickReserveReservations extends StatefulWidget {
   const QuickReserveReservations({Key? key});
+
+  @override
+  _QuickReserveReservationsState createState() =>
+      _QuickReserveReservationsState();
+}
+
+class _QuickReserveReservationsState extends State<QuickReserveReservations> {
+  late String apiToken = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchAlbum().then((response) {
+      print(response.body); // Print response body to the terminal
+    }).catchError((error) {
+      print('Error fetching album: $error'); // Print error if any occurs
+    });
+  }
+
+  Future<http.Response> fetchAlbum() {
+    return http.get(Uri.parse(
+        'https://schubergphilis.workflows.okta-emea.com/api/flo/d71da429cdb215bef89ffe6448097dee/invoke?clientToken=01d762901510b3c7f422595fa18d8d7bd71c1f3e58ad860fd3ae2d0c87a80955&url=/poi/v1/locations&method=GET&locationsVisibilityScopes=ACCOUNTS_STATIONS'));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -654,10 +729,9 @@ class QuickReserveReservations extends StatelessWidget {
             tileColor: const Color.fromARGB(255, 7, 7, 7),
             textColor: const Color.fromARGB(255, 9, 157, 226),
             iconColor: const Color.fromARGB(255, 9, 157, 226),
-            leading: const Icon(Icons.date_range),
-            title: const Text('Date: 12/12/2022'),
-            subtitle: const Text('Location: 1234 Example St'),
-            trailing: const Text('Time: 12:00 PM'),
+            leading: const Icon(Icons.api),
+            title: const Text('API Token'),
+            subtitle: Text('Token: $apiToken'),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
