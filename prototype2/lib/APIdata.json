@@ -1,0 +1,886 @@
+{
+    "stationList": [
+        {
+            "id": "93d712d9-2b17-4e64-a999-354bbb8d20f1",
+            "locationId": "EVB-P1947261",
+            "reference": "West Restaurant entrance - Repro paal 34 t/m44",
+            "status": "available",
+            "coordinates": {
+                "lng": 4.7499078014649365,
+                "lat": 52.27552457464269
+            },
+            "address": {
+                "state": "NH",
+                "streetName": "Boeing Avenue271",
+                "postcode": "1119            PD",
+                "city": "Schiphol-Rijk",
+                "country": {
+                    "code": "NL",
+                    "name": "Netherlands"
+                }
+            },
+            "maxPower": 22.08,
+            "evses": [
+                {
+                    "id": "1945668",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945668",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945668",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945448",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945448",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945448",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945625",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945625",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945625",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945531",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945531",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945531",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945690",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945690",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945690",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945227",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945227",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945227",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945133",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945133",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945133",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945262",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945262",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945262",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "2001091",
+                    "emi3Id": "NL*JPI*EEVBP1947261*2001091",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "2001091",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945670",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945670",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945670",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "1945686",
+                    "emi3Id": "NL*JPI*EEVBP1947261*1945686",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "1945686",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                }
+            ],
+            "connectors": [
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                }
+            ],
+            "visibilityScope": "internal_public",
+            "accountId": "62ca9a64-9abf-4aeb-8b17-6d472528f0c5",
+            "externalAccountId": null,
+            "externalParentAccountId": null
+        },
+        {
+            "id": "3975ab01-54c0-4c6d-bd74-935fd9a585a5",
+            "locationId": "EVB-P21201537",
+            "reference": "East Security - Restaurant entrance v2    paal 24 t/m 33",
+            "status": "available",
+            "coordinates": {
+                "lng": 4.750509366201001,
+                "lat": 52.27521294526177
+            },
+            "address": {
+                "state": "NH",
+                "streetName": "Boeing Avenue        271",
+                "postcode": "1119PD",
+                "city": "Schiphol-Rijk",
+                "country": {
+                    "code": "NL",
+                    "name": "Netherlands"
+                }
+            },
+            "maxPower": 22.08,
+            "evses": [
+                {
+                    "id": "21201700",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21201700",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21201700",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21221957",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21221957",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21221957",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21251718",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21251718",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21251718",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21411865",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21411865",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21411865",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21251746",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21251746",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21251746",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21411828",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21411828",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21411828",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21221978",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21221978",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21221978",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21271673",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21271673",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21271673",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21221966",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21221966",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21221966",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21251693",
+                    "emi3Id": "NL*JPI*EEVBP21201537*21251693",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21251693",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                }
+            ],
+            "connectors": [
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                }
+            ],
+            "visibilityScope": "internal_public",
+            "accountId": "62ca9a64-9abf-4aeb-8b17-6d472528f0c5",
+            "externalAccountId": null,
+            "externalParentAccountId": null
+        },
+        {
+            "id": "71b05e31-5c93-4cd2-b347-3121f164a90d",
+            "locationId": "EVB-P21381510",
+            "reference": "East Bike entrance - Security v2 paal 11 t/m23",
+            "status": "available",
+            "coordinates": {
+                "lng": 4.750866099999982,
+                "lat": 52.27502749364744
+            },
+            "address": {
+                "state": "NH",
+                "streetName": "Boeing Avenue271",
+                "postcode": "1119PD",
+                "city": "Schiphol-Rijk",
+                "country": {
+                    "code": "NL",
+                    "name": "Netherlands"
+                }
+            },
+            "maxPower": 11.04,
+            "evses": [
+                {
+                    "id": "22052340",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052340",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052340",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052344",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052344",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052344",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052191",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052191",
+                    "status": "occupied",
+                    "connectors": [
+                        {
+                            "id": "22052191",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052334",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052334",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052334",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052187",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052187",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052187",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052342",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052342",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052342",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052331",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052331",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052331",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052341",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052341",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052341",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052190",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052190",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052190",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052336",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052336",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052336",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21401882",
+                    "emi3Id": "NL*JPI*EEVBP21381510*21401882",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21401882",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052330",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052330",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052330",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22052252",
+                    "emi3Id": "NL*JPI*EEVBP21381510*22052252",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22052252",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                }
+            ],
+            "connectors": [
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "occupied",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                }
+            ],
+            "visibilityScope": "internal_public",
+            "accountId": "62ca9a64-9abf-4aeb-8b17-6d472528f0c5",
+            "externalAccountId": null,
+            "externalParentAccountId": null
+        },
+        {
+            "id": "bacd4be1-c5cc-4934-b730-25a3ceaf4789",
+            "locationId": "EVB-P22070263",
+            "reference": "West Loading bay - Reception v2 paal 41 t/m     55",
+            "status": "available",
+            "coordinates": {
+                "lng": 4.749558354493937,
+                "lat": 52.2757383259742
+            },
+            "address": {
+                "state": "NH",
+                "streetName": "Boeing Avenue271",
+                "postcode": "1119PD",
+                "city": "Schiphol-Rijk",
+                "country": {
+                    "code": "NL",
+                    "name": "Netherlands"
+                }
+            },
+            "maxPower": 22.08,
+            "evses": [
+                {
+                    "id": "21241826",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21241826",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21241826",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22074780",
+                    "emi3Id": "NL*JPI*EEVBP22070263*22074780",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22074780",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21411944",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21411944",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21411944",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21401583",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21401583",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21401583",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21401586",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21401586",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21401586",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21411823",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21411823",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21411823",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21251613",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21251613",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21251613",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21411941",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21411941",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21411941",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21251738",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21251738",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21251738",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "21251716",
+                    "emi3Id": "NL*JPI*EEVBP22070263*21251716",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "21251716",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                },
+                {
+                    "id": "22079270",
+                    "emi3Id": "NL*JPI*EEVBP22070263*22079270",
+                    "status": "available",
+                    "connectors": [
+                        {
+                            "id": "22079270",
+                            "type": "IEC_62196_T2",
+                            "format": "SOCKET"
+                        }
+                    ]
+                }
+            ],
+            "connectors": [
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                },
+                {
+                    "status": "available",
+                    "type": "IEC_62196_T2",
+                    "format": "SOCKET"
+                }
+            ],
+            "visibilityScope": "internal_public",
+            "accountId": "62ca9a64-9abf-4aeb-8b17-6d472528f0c5",
+            "externalAccountId": null,
+            "externalParentAccountId": null
+        }
+    ],
+    "nextOffset": null
+}

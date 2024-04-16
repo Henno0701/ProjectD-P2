@@ -1,7 +1,8 @@
 import 'dart:ui';
-
+import 'dart:io';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -9,10 +10,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'dart:html' as html;
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -457,7 +461,7 @@ class _MakeReservationsState extends State<MakeReservations> {
         // Check if "View Reservations" is tapped
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ViewReservations()),
+          MaterialPageRoute(builder: (context) => const ViewReservations()),
         );
       }
     });
@@ -691,11 +695,29 @@ class QuickReserveReservations extends StatefulWidget {
 class _QuickReserveReservationsState extends State<QuickReserveReservations> {
   late String apiToken = '';
 
+  Future<void> saveApiDataToJson(String responseBody) async {
+    try {
+      Directory appDocDir = await getApplicationDocumentsDirectory();
+      String appDocPath = appDocDir.path;
+      File file = File('$appDocPath/APIdata.json');
+      await file.writeAsString(responseBody);
+    } catch (error) {
+      print('Error saving API data to JSON file: $error');
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     fetchAlbum().then((response) {
       print(response.body); // Print response body to the terminal
+      saveApiDataToJson(response.body).then((_) {
+        setState(() {
+          apiToken = response.body; // Update apiToken state with API response
+        });
+      }).catchError((error) {
+        print('Error saving API data to JSON file: $error');
+      });
     }).catchError((error) {
       print('Error fetching album: $error'); // Print error if any occurs
     });
